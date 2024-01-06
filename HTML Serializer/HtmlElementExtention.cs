@@ -8,14 +8,16 @@ using System.Threading.Tasks;
 
 namespace HTML_Serializer
 {
-    public static class HtmlElementExtention
+    internal static class HtmlElementExtention
     {
-        public static HtmlElement findBySelector(this Selector selector)
+        public static List<HtmlElement> FindBySelector(this HtmlElement element, Selector selector)
         {
             HashSet<HtmlElement> searchResult = new();
+            filterElements(element, selector, searchResult);
+            return searchResult.ToList();
         }
 
-        private static void filterElements(HtmlElement element, Selector selector, Collection<HtmlElement> results)
+        private static void filterElements(HtmlElement element, Selector selector, HashSet<HtmlElement> results)
         {
             if (selector.Child == null)
             {
