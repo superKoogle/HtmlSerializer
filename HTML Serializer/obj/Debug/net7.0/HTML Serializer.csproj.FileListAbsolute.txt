@@ -1,0 +1,17 @@
+D:\הנדסאים - לימודים\שנה ג\HTML Serializer\HTML Serializer\bin\Debug\net7.0\HTML Serializer.exe
+D:\הנדסאים - לימודים\שנה ג\HTML Serializer\HTML Serializer\bin\Debug\net7.0\HTML Serializer.deps.json
+D:\הנדסאים - לימודים\שנה ג\HTML Serializer\HTML Serializer\bin\Debug\net7.0\HTML Serializer.runtimeconfig.json
+D:\הנדסאים - לימודים\שנה ג\HTML Serializer\HTML Serializer\bin\Debug\net7.0\HTML Serializer.dll
+D:\הנדסאים - לימודים\שנה ג\HTML Serializer\HTML Serializer\bin\Debug\net7.0\HTML Serializer.pdb
+D:\הנדסאים - לימודים\שנה ג\HTML Serializer\HTML Serializer\obj\Debug\net7.0\HTML Serializer.csproj.AssemblyReference.cache
+D:\הנדסאים - לימודים\שנה ג\HTML Serializer\HTML Serializer\obj\Debug\net7.0\HTML Serializer.GeneratedMSBuildEditorConfig.editorconfig
+D:\הנדסאים - לימודים\שנה ג\HTML Serializer\HTML Serializer\obj\Debug\net7.0\HTML Serializer.AssemblyInfoInputs.cache
+D:\הנדסאים - לימודים\שנה ג\HTML Serializer\HTML Serializer\obj\Debug\net7.0\HTML Serializer.AssemblyInfo.cs
+D:\הנדסאים - לימודים\שנה ג\HTML Serializer\HTML Serializer\obj\Debug\net7.0\HTML Serializer.csproj.CoreCompileInputs.cache
+D:\הנדסאים - לימודים\שנה ג\HTML Serializer\HTML Serializer\obj\Debug\net7.0\HTML Serializer.dll
+D:\הנדסאים - לימודים\שנה ג\HTML Serializer\HTML Serializer\obj\Debug\net7.0\refint\HTML Serializer.dll
+D:\הנדסאים - לימודים\שנה ג\HTML Serializer\HTML Serializer\obj\Debug\net7.0\HTML Serializer.pdb
+D:\הנדסאים - לימודים\שנה ג\HTML Serializer\HTML Serializer\obj\Debug\net7.0\HTML Serializer.genruntimeconfig.cache
+D:\הנדסאים - לימודים\שנה ג\HTML Serializer\HTML Serializer\obj\Debug\net7.0\ref\HTML Serializer.dll
+D:\הנדסאים - לימודים\שנה ג\HTML Serializer\HTML Serializer\bin\Debug\net7.0\seed\HtmlVoidTags.json
+D:\הנדסאים - לימודים\שנה ג\HTML Serializer\HTML Serializer\bin\Debug\net7.0\seed\HtmlTags.json
