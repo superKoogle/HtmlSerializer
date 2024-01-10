@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace HTML_Serializer
 {
-    internal class HtmlElement
+    public class HtmlElement
     {
-        internal string Id;
+        public string Id;
 
-        internal string Name;
+        public string Name;
 
-        internal List<string> Attributes = new();
+        public List<string> Attributes = new();
 
-        internal List<string> Classes = new();
+        public List<string> Classes = new();
 
-        internal string InnerHtml;
+        public string InnerHtml;
     
         public HtmlElement Parent;
 
@@ -24,7 +24,7 @@ namespace HTML_Serializer
         public IEnumerable<HtmlElement> Descendants()
         {
             Queue<HtmlElement> elements = new();
-            elements.Enqueue(this);
+            foreach(var child in Children) elements.Enqueue(child);
             while (elements.Count > 0)
             {
                 HtmlElement element = elements.Dequeue();

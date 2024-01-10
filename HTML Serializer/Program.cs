@@ -7,8 +7,12 @@ using System.Text.RegularExpressions;
 var html = await Load("https://moodle.malkabruk.co.il/my/courses.php");
 var cleanHtml = new Regex("\\s+").Replace(html, " ");
 cleanHtml = new Regex("/\\*\\*(.*?)\\*\\*/").Replace(cleanHtml, "");
-var htmlLines = new Regex("<(.*?)>").Split(cleanHtml).Where(l =>(l.Length >0 && l!=" "));
-HtmlElement tree = BuildTree(htmlLines);
+var htmlLines = new Regex("<(.*?)>").Split(cleanHtml).Where(l => l.Length > 0 && l != " ");
+HtmlElement tree = Serialize(htmlLines);
+List<HtmlElement> searchresults1 = tree.FindBySelector(Selector.convertStringToSelector("body div div script"));
+List<HtmlElement> searchresults2 = tree.FindBySelector(Selector.convertStringToSelector(".dropdown-divider"));
+List<HtmlElement> searchresults3 = tree.FindBySelector(Selector.convertStringToSelector("div#page-wrapper a.sr-only-focusable"));
+
 
 Console.ReadLine();
 
@@ -19,14 +23,15 @@ async Task<string> Load(string url)
     return await response.Content.ReadAsStringAsync();
 }
 
-HtmlElement BuildTree(IEnumerable<string> html)
+
+
+HtmlElement Serialize(IEnumerable<string> html)
 {
     HtmlElement rootElement = new();
     var currentElement = rootElement;
     foreach (string htmlLine in html)
     {
-        Console.WriteLine(htmlLine);
-        string firstWord = htmlLine.Contains(' ')? htmlLine[..htmlLine.IndexOf(' ')]:htmlLine;
+        string firstWord = htmlLine.Contains(' ') ? htmlLine[..htmlLine.IndexOf(' ')] : htmlLine;
         if (htmlLine == "/html")
             return rootElement;
         if (htmlLine.StartsWith("/"))
@@ -34,7 +39,7 @@ HtmlElement BuildTree(IEnumerable<string> html)
             currentElement = currentElement.Parent;
             continue;
         }
-        if(HtmlHelper.Instance.htmlTags.Contains(firstWord))
+        if (HtmlHelper.Instance.htmlTags.Contains(firstWord))
         {
             currentElement = updateCurrentElement(currentElement, firstWord, htmlLine);
             if (HtmlHelper.Instance.htmlVoidTags.Contains(firstWord) || htmlLine.EndsWith(" /"))
@@ -71,13 +76,13 @@ void FillHtmlElementFromString(string line, HtmlElement newElement)
     {
         var equalIndex = attribute.IndexOf('=');
         var att = new Tuple<string, string>(attribute[..equalIndex], attribute[(equalIndex + 1)..]);
-        switch (att.Item1)
+        switch (att.Item1[1..])
         {
             case "id":
-                newElement.Id = att.Item2;
+                newElement.Id = att.Item2[1..(att.Item2.Length-1)];
                 break;
             case "class":
-                newElement.Classes = att.Item2.Split(' ').ToList();
+                newElement.Classes = att.Item2[1..(att.Item2.Length - 1)].Split(' ').ToList();
                 break;
             default:
                 newElement.Attributes.Add(attribute);

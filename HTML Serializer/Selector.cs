@@ -14,7 +14,7 @@ namespace HTML_Serializer
         public List<string> Classes = new();
         private Selector Parent;
         public Selector Child;
-        static Selector convertStringToSelector(string query)
+        internal static Selector convertStringToSelector(string query)
         {
             Selector selector = new();
             Selector current = selector;
@@ -22,14 +22,14 @@ namespace HTML_Serializer
             foreach (string subQuery in subQueries)
             {
                 List<string> values = Regex.Split(subQuery, @"(?=[.#])").ToList();
-                foreach(string value in values)
+                foreach(string value in values.Where(val => val.Length > 0).ToList())
                 {
                     switch (value[0])
                     {
-                        case '.': 
+                        case '#': 
                             current.Id = value[1..];
                             break;
-                        case '#':
+                        case '.':
                             current.Classes.Add(value[1..]);
                             break;
                         default:
